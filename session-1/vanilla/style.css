@@ -1,0 +1,25 @@
+html,body{
+    margin:0;
+    padding:0;
+   background-color: aquamarine;
+
+}
+
+section{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+    outline:none;
+    border: none;
+    margin: 0px 10px;
+    background-color: rgba(0, 0, 255, 0.462);
+    border-radius: 10px;
+    color: white;
+}
