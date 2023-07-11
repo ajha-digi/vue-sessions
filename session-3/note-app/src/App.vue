@@ -1,5 +1,7 @@
 <script setup>
 import { ref } from 'vue';
+import chalk from 'chalk';
+
 const isModalOpne = ref(false);
 const isEditModalOpne = ref(false);
 const newNote = ref("");
@@ -29,6 +31,7 @@ const addNotes = () => {
 }
 
 const editNote = (id) => {
+  debugger;
   isEditModalOpne.value = true;
   const updatedNoteIndex = notes.value.findIndex(note => note.id === id);
   newNote.value = notes.value[updatedNoteIndex].text;
@@ -50,6 +53,9 @@ const deleteNote = id => {
   notes.value = updatedNote;
 }
 
+console.log(chalk.red.bold.underline('Hello', 'world'));
+console.log(chalk.green('Hello %s'), name);
+console.log(chalk.blue.bgRed.bold('Hello world!'));
 </script>
 
 <template>
@@ -80,9 +86,9 @@ const deleteNote = id => {
           <p class="main-text">{{ note.text }}</p>
           <div class="bottom">
             <p class="date">{{ note.date.toLocaleDateString("en-US") }}</p>
-            <div class= "action">
-              <i class="fa fa-pencil" aria-hidden="true" @click="()=>editNote(note.id)"></i>
-              <i class="fa fa-trash" aria-hidden="true" @click="()=>deleteNote(note.id)"></i>
+            <div class="action">
+              <i class="fa fa-pencil" aria-hidden="true" @click="() => editNote(note.id)"></i>
+              <i class="fa fa-trash" aria-hidden="true" @click="() => deleteNote(note.id)"></i>
             </div>
           </div>
         </div>
@@ -191,21 +197,20 @@ header button {
   color: brown;
 }
 
-.bottom{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.fa-pencil{
+
+.fa-pencil {
   margin-right: 15px;
   color: blue;
   cursor: pointer;
 }
 
-.fa-trash{
+.fa-trash {
   color: red;
   cursor: pointer;
 }
-
-
 </style>
