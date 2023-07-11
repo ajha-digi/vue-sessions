@@ -1,5 +1,5 @@
 <script setup>
-import {RouterView, RouterLink} from "vue-router";
+import { RouterView, RouterLink } from "vue-router";
 </script>
 
 <template>
@@ -16,7 +16,7 @@ import {RouterView, RouterLink} from "vue-router";
 </template>
 
 <style scoped>
-.active{
+.active {
   color: blueviolet;
   font-size: 20px;
   font-weight: bolder;
