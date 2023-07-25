@@ -4,6 +4,7 @@ import quizeData from "../data/quizes.json";
 import Card from "../components/Card.vue";
 const quizes = ref(quizeData);
 const search = ref("");
+const showCard = ref(false);
 
 watch(search, () => {
   quizes.value = quizeData.filter(quiz => quiz.name.toLowerCase().includes(search.value.toLowerCase()))
@@ -19,8 +20,12 @@ watch(search, () => {
     </header>
 
     <div class="options-container">
-      <Card v-for="quiz in quizes" :quiz="quiz" :key="quiz.id" />
+      <TransitionGroup name="card">
+        <Card v-if="!showCard" v-for="quiz in quizes" :quiz="quiz" :key="quiz.id" />
+    </TransitionGroup>
+    <!-- <button  @click="showCard = !showCard" >Show</button> -->
     </div>
+
   </div>
 </template>
 
@@ -49,6 +54,19 @@ header input {
   display: flex;
   flex-wrap: wrap;
   margin-top: 40px;
+}
+
+.card-enter-from {
+  transform: translateY(-100px);
+  opacity: 0;
+}
+.card-enter-to {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card-enter-active {
+  transition: all 2s ease;
 }
 
 </style>
