@@ -37,13 +37,18 @@ const author = ref("");
   <div>
     <input v-model="title"/>
     <input v-model="author"/>
-    <button type="submit" @click="sendPost">Save</button>
+    <NButton type="primary"  @click="sendPost">
+      Save
+    </NButton>
+    <!-- <button type="submit">Save</button> -->
   </div>
   <div>
     <ul v-for="post in posts" :key="post.id">
       <li>{{post.title}} <span @click="deletePost(post.id)">X</span></li>
     </ul>
   </div>
+  <NRate />
+
 </template>
 
 <style scoped>

@@ -1,3 +1,14 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "id": 1,
+      "title": "fghj",
+      "author": "ghjk"
+    },
+    {
+      "id": 2,
+      "title": "ghjk",
+      "author": "hgjkl"
+    }
+  ]
 }
